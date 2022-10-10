@@ -1,0 +1,31 @@
+{
+  "name": "manager-app",
+  "version": "1.0.0",
+  "description": "app for managers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarioGranados/manager-app.git"
+  },
+  "author": "Mario Granados",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarioGranados/manager-app/issues"
+  },
+  "homepage": "https://github.com/MarioGranados/manager-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
