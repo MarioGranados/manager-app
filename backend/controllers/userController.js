@@ -1,6 +1,9 @@
 const asyncHandler = require('express-async-handler');
-const { globalAgent } = require('http');
 const User = require('../models/userModel')
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+
 //@desc getUsers
 //@route GET
 //@access Private
@@ -12,15 +15,46 @@ const getUser = asyncHandler(async(req, res) => {
 //@route GET
 //@access Private
 const createUser = asyncHandler (async(req, res) => {
-    if(!req.body.text) {
+
+    const {firstName, lastName, email, password} = req.body
+
+    if(!firstName || !lastName || !email || !password) {
         res.status(400)
-        throw new Error('Please add a text field')
+        console.log(firstName, lastName, email, password)
+        throw new Error('Please add all fields');
     }
 
+    //check if user exists
+    const userExists = await User.findOne({email})
+
+    if(userExists) {
+        res.status(400)
+        throw new Error('user already exists')
+    }
+
+    //hash pbcrypt
+    const salt = await bcrypt.genSalt(10)
+    const hashPassword = await bcrypt.hash(password, salt)
+
+    //create user
     const user = await User.create({
-        text: req.body.text
+        firstName,
+        lastName,
+        email,
+        password: hashPassword,
     })
-    res.status(200).json(user);
+
+    if(user) {
+        res.status(201).json({
+            _id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid user data')
+    }
 })
 //@desc getUsers
 //@route GET
