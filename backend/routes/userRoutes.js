@@ -13,6 +13,7 @@ const {getUser, createUser, updateUser, deleteUser} = require('../controllers/us
 // router.get('/', getUser);
 
 router.post('/', createUser)
+router.get('/', getUser);
 
 router.put('/:id', updateUser)
 
