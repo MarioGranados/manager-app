@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {getUser, createUser, updateUser, deleteUser} = require('../controllers/userController');
+const {createUser, updateUser, deleteUser, userLogin, getUserProfile} = require('../controllers/userController');
+const {protect} = require('../middleware/authMiddleware')
 
 // router.route('/')
 // .get(getUser)
@@ -12,8 +13,11 @@ const {getUser, createUser, updateUser, deleteUser} = require('../controllers/us
 
 // router.get('/', getUser);
 
-router.post('/', createUser)
-router.get('/', getUser);
+router.get("/profile", protect ,getUserProfile )
+
+router.post('/register', createUser)
+
+router.get('/login', userLogin);
 
 router.put('/:id', updateUser)
 

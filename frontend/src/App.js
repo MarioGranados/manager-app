@@ -1,17 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Header from './components/Header';
 
 function App() {
   return (
-    <>
-    <h2>Login</h2>
-    <Login/>
-    <h2>sign up</h2>
-    <SignUp/>
-    </>
+    <>    
+    <Router>
+      <div class="container">
+        <Header/>
+        <Routes>
+          <Route path='/' element={<Dashboard/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
+        </Routes>
+      </div>
+      </Router>
 
+    </>
   );
 }
 

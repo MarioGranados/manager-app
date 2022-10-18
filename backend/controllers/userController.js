@@ -3,12 +3,25 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-//@desc getUsers
+//@desc login user
 //@route GET /api/user
 //@access Private
-const getUser = asyncHandler(async (req, res) => {
-  const user = await User.find();
-  res.status(200).json(user);
+const userLogin = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      _id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid credentials");
+  }
 });
 //@desc getUsers
 //@route post /api/user
@@ -18,7 +31,6 @@ const createUser = asyncHandler(async (req, res) => {
 
   if (!firstName || !lastName || !email || !password) {
     res.status(400);
-    console.log(firstName, lastName, email, password);
     throw new Error("Please add all fields");
   }
 
@@ -48,6 +60,7 @@ const createUser = asyncHandler(async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -81,4 +94,31 @@ const deleteUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `delete user ${req.params.id} status` });
 });
 
-module.exports = { getUser, createUser, updateUser, deleteUser };
+//@desc getUsers
+//@route delete /api/user/profile
+//@access Private
+const getUserProfile = asyncHandler (async(req, res) => {
+  const { _id , firstName, lastName, email } = await User.findById(req.user.id)
+
+  res.status(200).json({
+    id: _id,
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+  });
+});
+
+//generate JWT
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
+
+module.exports = {
+  userLogin,
+  createUser,
+  updateUser,
+  deleteUser,
+  getUserProfile,
+};
