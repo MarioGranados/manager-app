@@ -98,14 +98,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 //@route delete /api/user/profile
 //@access Private
 const getUserProfile = asyncHandler (async(req, res) => {
-  const { _id , firstName, lastName, email } = await User.findById(req.user.id)
-
-  res.status(200).json({
-    id: _id,
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-  });
+  res.status(200).json(req.user)
 });
 
 //generate JWT

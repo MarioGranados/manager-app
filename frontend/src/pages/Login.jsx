@@ -47,7 +47,7 @@ function Login() {
   };
 
   if(isLoading){
-    return(<h1>loading...</h1>)
+    return(<Spinner/>)
   }
   return (
     <div>

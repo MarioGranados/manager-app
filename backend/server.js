@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
 app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/employee', require('./routes/employeeRoutes'));
+app.use('/api/employees', require('./routes/employeeRoutes'));
 app.use('/api/schedule', require('./routes/schedule'));
 
 app.use(errorHandler);

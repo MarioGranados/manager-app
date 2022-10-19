@@ -14,16 +14,45 @@ function Header() {
     navigate("/");
   };
   return (
-    <div className="container">
-      {user ? (
-        <button onClick={onLogout}>logout</button>
-      ) : (
-        <a href="/login">Login</a>
-      )}
+    <>
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use href="/" />
+          </svg>
+          <span class="fs-4">LOGO</span>
+        </a>
 
-      <a href="/register">Register</a>
-      <a href="/">Home</a>
-    </div>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="/" class="nav-link" aria-current="page">
+              Home
+            </a>
+          </li>
+          {user ? (
+            <li className="nav-item">
+              <button onClick={onLogout} className="nav-link">
+                Logout
+              </button>
+            </li>
+          ) : (
+            <li className="nav-item">
+              <a href="/login" className="nav-link">
+                Login
+              </a>
+            </li>
+          )}
+          <li class="nav-item">
+            <a href="/register" class="nav-link">
+              SignUp
+            </a>
+          </li>
+        </ul>
+      </header>
+    </>
   );
 }
 

@@ -57,79 +57,81 @@ function Register() {
   };
 
   if (isLoading) {
-    return <h2>Loading</h2>;
+    return <Spinner/>;
   }
   return (
-    <div>
-      <section>
-        <form onSubmit={onSubmit}>
-          <div class="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="firstName"
-              name="firstName"
-              value={firstName}
-              placeholder="first name"
-              onChange={onChange}
-            />
-            <label for="floatingInput">First Name</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="lastName"
-              name="lastName"
-              value={lastName}
-              placeholder="last name"
-              onChange={onChange}
-            />
-            <label for="floatingInput">Last Name</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="email"
-              onChange={onChange}
-            />
-            <label for="floatingInput">Email Address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="password"
-              onChange={onChange}
-            />
-            <label for="floatingPassword">Password</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input
-              type="password"
-              className="form-control"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={confirmPassword}
-              placeholder="confirm password"
-              onChange={onChange}
-            />
-            <label for="floatingPassword">Confirm Password</label>
-          </div>
+    <>
+      <div className="container">
+        <section>
+          <form onSubmit={onSubmit}>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                name="firstName"
+                value={firstName}
+                placeholder="first name"
+                onChange={onChange}
+              />
+              <label for="floatingInput">First Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                name="lastName"
+                value={lastName}
+                placeholder="last name"
+                onChange={onChange}
+              />
+              <label for="floatingInput">Last Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                value={email}
+                placeholder="email"
+                onChange={onChange}
+              />
+              <label for="floatingInput">Email Address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name="password"
+                value={password}
+                placeholder="password"
+                onChange={onChange}
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                className="form-control"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={confirmPassword}
+                placeholder="confirm password"
+                onChange={onChange}
+              />
+              <label for="floatingPassword">Confirm Password</label>
+            </div>
 
-          <button type="submit" className="btn btn-primary">
-            Register
-          </button>
-        </form>
-      </section>
-    </div>
+            <button type="submit" className="btn btn-primary">
+              Register
+            </button>
+          </form>
+        </section>
+      </div>
+    </>
   );
 }
 

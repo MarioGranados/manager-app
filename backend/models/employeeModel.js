@@ -5,17 +5,9 @@ const employeeSchema = mongoose.Schema( {
         required: true,
         ref: 'User',
     },
-    employeeName: {
+    text: {
         type: String,
-        required: [true, "employee name"],
-    },
-    employeePosition: {
-        type: String,
-        required: [true, "employee position"],
-    },
-    employeePay: {
-        type: String,
-        required: [true, "employee pay"],
+        required: [true, 'please add text']
     },
 },
 {
