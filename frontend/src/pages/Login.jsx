@@ -50,10 +50,10 @@ function Login() {
     return(<Spinner/>)
   }
   return (
-    <div>
+    <>
       <section>
         <form onSubmit={onSubmit}>
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
               type="email"
               className="form-control"
@@ -62,10 +62,10 @@ function Login() {
               value={email}
               placeholder="email"
               onChange={onChange}
-            />{" "}
+            />
             <label for="floatingInput">Email address</label>
           </div>
-          <div class="form-floating">
+          <div className="form-floating">
             <input
               type="password"
               className="form-control"
@@ -74,7 +74,7 @@ function Login() {
               value={password}
               placeholder="password"
               onChange={onChange}
-            />{" "}
+            />
             <label for="floatingPassword">Password</label>
           </div>
 
@@ -83,7 +83,7 @@ function Login() {
           </button>
         </form>
       </section>
-    </div>
+    </>
   );
 }
 

@@ -57,14 +57,14 @@ function Register() {
   };
 
   if (isLoading) {
-    return <Spinner/>;
+    return (<Spinner/>);
   }
   return (
     <>
       <div className="container">
         <section>
           <form onSubmit={onSubmit}>
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="text"
                 className="form-control"
@@ -76,7 +76,7 @@ function Register() {
               />
               <label for="floatingInput">First Name</label>
             </div>
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="text"
                 className="form-control"
@@ -88,7 +88,7 @@ function Register() {
               />
               <label for="floatingInput">Last Name</label>
             </div>
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="email"
                 className="form-control"
@@ -100,7 +100,7 @@ function Register() {
               />
               <label for="floatingInput">Email Address</label>
             </div>
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="password"
                 className="form-control"
@@ -112,7 +112,7 @@ function Register() {
               />
               <label for="floatingPassword">Password</label>
             </div>
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="password"
                 className="form-control"

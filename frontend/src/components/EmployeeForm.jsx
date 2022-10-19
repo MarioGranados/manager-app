@@ -9,19 +9,18 @@ function EmployeeForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createEmployee())
+    dispatch(createEmployee({text}))
     setText('')
-
   };
   return (
     <>
       <section>
         <form onSubmit={onSubmit}>
-          <div class="row g-3">
-            <div class="col-sm-7">
+          <div className="row g-3">
+            <div className="col-sm-7">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="City"
                 aria-label="City"
                 name="text"
@@ -30,28 +29,13 @@ function EmployeeForm() {
                 onChange={e => {setText(e.target.value)}}
               />
             </div>
-            {/* <div class="col-sm">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="State"
-                aria-label="State"
-              />
-            </div>
-            <div class="col-sm">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Zip"
-                aria-label="Zip"
-              />
-            </div> */}
+
           </div>
           <button className="btn btn-primary">submit</button>
         </form>
       </section>
     </>
-  );
+  )
 }
 
 export default EmployeeForm;

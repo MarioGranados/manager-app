@@ -13,7 +13,7 @@ const createEmployee = async (employeeData, token) => {
   return response.data;
 };
 //get all employees
-const getEmployees = async (employeeData, token) => {
+const getEmployees = async (token) => {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,

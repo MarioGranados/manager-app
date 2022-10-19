@@ -1,4 +1,4 @@
-import {useEffect, userEffect} from 'react'
+import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import EmployeeForm from '../components/EmployeeForm';
@@ -11,23 +11,23 @@ function Dashboard() {
   const {user} = useSelector((state) => state.auth)
   const {employees, isLoading, isError, message} = useSelector((state) => state.employees)
   useEffect(() => {
-    if(isError) {
+    if (isError) {
       console.log(message)
     }
-    if(!user) {
+
+    if (!user) {
       navigate('/login')
     }
 
     dispatch(getEmployees())
 
-    //clear employees when we logout
     return () => {
       dispatch(reset())
     }
-  },[user, navigate, isError, dispatch, message])
+  }, [user, navigate, isError, message, dispatch])
 
   if(isLoading) {
-    return <Spinner/>
+    return (<Spinner/>)
   }
   return (
     <>
@@ -36,6 +36,7 @@ function Dashboard() {
       <p>Employees</p>
       <EmployeeForm/>
     </section>
+    
     </>
   )
 }

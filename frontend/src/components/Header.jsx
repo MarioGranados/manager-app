@@ -15,20 +15,20 @@ function Header() {
   };
   return (
     <>
-      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a
           href="/"
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+          className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
         >
-          <svg class="bi me-2" width="40" height="32">
+          <svg className="bi me-2" width="40" height="32">
             <use href="/" />
           </svg>
-          <span class="fs-4">LOGO</span>
+          <span className="fs-4">LOGO</span>
         </a>
 
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a href="/" class="nav-link" aria-current="page">
+        <ul className="nav nav-pills">
+          <li className="nav-item">
+            <a href="/" className="nav-link" aria-current="page">
               Home
             </a>
           </li>
@@ -40,15 +40,15 @@ function Header() {
             </li>
           ) : (
             <li className="nav-item">
-              <a href="/login" className="nav-link">
+              <Link to="/login" >
                 Login
-              </a>
+              </Link>
             </li>
           )}
-          <li class="nav-item">
-            <a href="/register" class="nav-link">
+          <li className="nav-item">
+            <Link to="/register" >
               SignUp
-            </a>
+            </Link>
           </li>
         </ul>
       </header>
