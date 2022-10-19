@@ -17,7 +17,7 @@ router.get("/profile", protect ,getUserProfile )
 
 router.post('/register', createUser)
 
-router.get('/login', userLogin);
+router.post('/login', userLogin);
 
 router.put('/:id', updateUser)
 
