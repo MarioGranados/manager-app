@@ -63,7 +63,7 @@ function Login() {
               placeholder="email"
               onChange={onChange}
             />
-            <label for="floatingInput">Email address</label>
+            <label for="email">Email address</label>
           </div>
           <div className="form-floating">
             <input
@@ -75,7 +75,7 @@ function Login() {
               placeholder="password"
               onChange={onChange}
             />
-            <label for="floatingPassword">Password</label>
+            <label for="password">Password</label>
           </div>
 
           <button type="submit" className="btn btn-primary">
