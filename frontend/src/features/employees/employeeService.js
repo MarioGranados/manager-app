@@ -23,8 +23,20 @@ const getEmployees = async (token) => {
     return response.data;
   }
 
+  //delete employee
+  const deleteEmployee = async (employeeId ,token) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}` 
+      },
+    };
+    const response = await axios.delete(API_URL + employeeId, config);
+    return response.data
+  }
+
 const employeeService = {
   createEmployee,
   getEmployees,
+  deleteEmployee
 };
 export default employeeService;
