@@ -18,10 +18,10 @@ function Dashboard() {
     }
 
     if (!user) {
-      navigate('/login')
+      navigate("/login")
     }
 
-    dispatch(getEmployees)
+    dispatch(getEmployees())
 
     return () => {
       dispatch(reset())

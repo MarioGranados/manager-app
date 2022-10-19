@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {createEmployee} from '../features/employees/employeeSlice'
+import {useNavigate} from 'react-router-dom';
 
 function EmployeeForm() {
     const[text, setText] = useState('')
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
 
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(createEmployee({text}))
     setText('')
+    navigate('/')
   };
   return (
     <>

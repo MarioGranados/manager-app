@@ -1,11 +1,15 @@
 import React from "react";
 
 function Spinner() {
+  const style = {
+    width: '3m',
+    height: '3m',
+  }
   return (
     <>
       <div
         className="spinner-grow"
-        style="width: 3rem; height: 3rem;"
+        style={style}
         role="status"
       >
         <span className="visually-hidden">Loading...</span>

@@ -59,6 +59,8 @@ export const employeeSlice = createSlice({
                 state.isError = true
                 state.message = action.payload
             })
+
+            //getemployees
             .addCase(getEmployees.pending, (state) => {
                 state.isLoading = true
             })
