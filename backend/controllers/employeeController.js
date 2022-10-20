@@ -13,7 +13,6 @@ const getEmployees = asyncHandler(async (req, res) => {
 //@desc setEmployee
 //@route POST
 //@access private
-
 const setEmployee = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);

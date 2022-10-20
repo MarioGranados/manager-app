@@ -5,10 +5,39 @@ const employeeSchema = mongoose.Schema( {
         required: true,
         ref: 'User',
     },
-    text: {
+    name: {
         type: String,
         required: [true, 'please add text']
     },
+    mon: {
+        type: String,
+        required: [true, 'please add text']
+    },
+    tues: {
+        type: String,
+        required: [true, 'please add text']
+    },
+    wed: {
+        type: String,
+        required: [true, 'please add text']
+    },
+    thurs: {
+        type: String,
+        required: [true, 'please add text']
+    },
+    fri: {
+        type: String,
+        required: [true, 'please add text']
+    },
+    sat: {
+        type: String,
+        required: [true, 'please add text']
+    },
+    sun: {
+        type: String,
+        required: [true, 'please add text']
+    },
+
 },
 {
     timestamps: true,
