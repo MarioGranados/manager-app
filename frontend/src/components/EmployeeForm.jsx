@@ -4,7 +4,6 @@ import { createEmployee } from "../features/employees/employeeSlice";
 import { useNavigate } from "react-router-dom";
 
 function EmployeeForm() {
-  const [text, setText] = useState("");
   const [employeeFormData, setEmployeeFormData] = useState({
     name: "",
     mon: "",
@@ -21,28 +20,37 @@ function EmployeeForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const employeeData = {
+      name,
+      mon,
+      tues,
+      wed,
+      thurs,
+      fri,
+      sat,
+      sun,
+    };
+    dispatch(createEmployee(employeeData));
     console.log(employeeFormData);
-    // dispatch(createEmployee({ text }));
-    // setText("");
-    // navigate("/");
+    navigate("/");
   };
 
   const daysOfTheWeek = [
-    "Employee Name",
-    "Mon",
-    "Tues",
-    "Wed",
-    "Thurs",
-    "Fri",
-    "Sat",
-    "Sun",
+    "name",
+    "mon",
+    "tues",
+    "wed",
+    "thurs",
+    "fri",
+    "sat",
+    "sun",
   ];
   const div = [];
   daysOfTheWeek.forEach((day) => {
     if (day === "name") {
       div.push(
         <>
-          <div class="col">
+          <div className="col">
             <label htmlFor={day}>{day}</label>
             <input
               type="text"
@@ -64,7 +72,7 @@ function EmployeeForm() {
     } else {
       div.push(
         <>
-          <div class="col">
+          <div className="col">
             <label htmlFor={day}>{day}</label>
             <input
               type="time"
@@ -91,8 +99,9 @@ function EmployeeForm() {
       <section>
         <form onSubmit={onSubmit}>
           <div className="row">{div}</div>
-
-          <button className="btn btn-primary">submit</button>
+          <div className="my-4">
+            <button className="btn btn-primary">submit</button>
+          </div>
         </form>
       </section>
     </>

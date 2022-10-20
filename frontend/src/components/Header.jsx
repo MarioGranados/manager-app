@@ -40,13 +40,13 @@ function Header() {
             </li>
           ) : (
             <li className="nav-item">
-              <Link to="/login" >
+              <Link to="/login" className="nav-link">
                 Login
               </Link>
             </li>
           )}
           <li className="nav-item">
-            <Link to="/register" >
+            <Link to="/register" className="nav-link">
               SignUp
             </Link>
           </li>

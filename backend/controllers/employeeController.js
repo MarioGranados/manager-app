@@ -14,13 +14,20 @@ const getEmployees = asyncHandler(async (req, res) => {
 //@route POST
 //@access private
 const setEmployee = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  if (!req.body) {
     res.status(400);
     throw new Error("employee was not added");
   }
   const employee = await Employee.create({
-    text: req.body.text,
     user: req.user.id,
+    name: req.body.name,
+    mon: req.body.mon,
+    tues: req.body.tues,
+    wed: req.body.wed,
+    thurs: req.body.thurs,
+    fri: req.body.fri,
+    sat: req.body.sat,
+    sun: req.body.sun,
   });
   res.status(200).json(employee);
 });
