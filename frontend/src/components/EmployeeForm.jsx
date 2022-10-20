@@ -32,7 +32,7 @@ function EmployeeForm() {
     };
     dispatch(createEmployee(employeeData));
     console.log(employeeFormData);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   const daysOfTheWeek = [

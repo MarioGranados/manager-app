@@ -33,23 +33,34 @@ function Header() {
             </a>
           </li>
           {user ? (
-            <li className="nav-item">
-              <button onClick={onLogout} className="nav-link">
-                Logout
-              </button>
-            </li>
+            <>
+              {" "}
+              <li className="nav-item">
+                <Link to="/dashboard" className="nav-link">
+                  Schedules
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button onClick={onLogout} className="nav-link">
+                  Logout
+                </button>
+              </li>
+            </>
           ) : (
-            <li className="nav-item">
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
-            </li>
+            <>
+              {" "}
+              <li className="nav-item">
+                <Link to="/login" className="nav-link">
+                  Login
+                </Link>
+              </li>{" "}
+              <li className="nav-item">
+                <Link to="/register" className="nav-link">
+                  SignUp
+                </Link>
+              </li>
+            </>
           )}
-          <li className="nav-item">
-            <Link to="/register" className="nav-link">
-              SignUp
-            </Link>
-          </li>
         </ul>
       </header>
     </>
