@@ -23,7 +23,7 @@ function Header() {
           <svg className="bi me-2" width="40" height="32">
             <use href="/" />
           </svg>
-          <span className="fs-4">LOGO</span>
+          <span className="fs-4">Schedule</span>
         </a>
 
         <ul className="nav nav-pills">
